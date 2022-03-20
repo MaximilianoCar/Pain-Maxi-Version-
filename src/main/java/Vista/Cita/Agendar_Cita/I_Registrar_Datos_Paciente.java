@@ -156,6 +156,11 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
         TextSexo.setBackground(new java.awt.Color(153, 153, 153));
         TextSexo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextSexo.setForeground(new java.awt.Color(255, 255, 255));
+        TextSexo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextSexoKeyTyped(evt);
+            }
+        });
 
         TextFechaNacimiento.setBackground(new java.awt.Color(153, 153, 153));
         TextFechaNacimiento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -176,6 +181,11 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
         TextEstadoCivil.setBackground(new java.awt.Color(153, 153, 153));
         TextEstadoCivil.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextEstadoCivil.setForeground(new java.awt.Color(255, 255, 255));
+        TextEstadoCivil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextEstadoCivilKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -473,13 +483,7 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_TextApellidoKeyTyped
 
     private void TextDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextDireccionKeyTyped
-        // Que no se puedan escribir numeros
-        char c = evt.getKeyChar();
         
-        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
-        } else {
-            evt.consume();
-        }
     }//GEN-LAST:event_TextDireccionKeyTyped
 
     private void TextProfesionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextProfesionKeyTyped
@@ -516,6 +520,26 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
     private void TextProfesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextProfesionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextProfesionActionPerformed
+
+    private void TextSexoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSexoKeyTyped
+        // Que no se puedan escribir numeros
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextSexoKeyTyped
+
+    private void TextEstadoCivilKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextEstadoCivilKeyTyped
+        // Que no se puedan escribir numeros
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextEstadoCivilKeyTyped
 
     /**
      * @param args the command line arguments

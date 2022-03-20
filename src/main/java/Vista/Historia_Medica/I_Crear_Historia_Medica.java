@@ -375,14 +375,14 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
         
-        if (c < '0' || c > '9') evt.consume();
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_TextPesoKeyTyped
 
     private void TextTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTallaKeyTyped
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
         
-        if (c < '0' || c > '9') evt.consume();
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_TextTallaKeyTyped
 
     private void ExtIdmcKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ExtIdmcKeyReleased
@@ -393,28 +393,28 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
         
-        if (c < '0' || c > '9') evt.consume();
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_ExtIdmcKeyTyped
 
     private void TextTensionMaximaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTensionMaximaKeyTyped
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
         
-        if (c < '0' || c > '9') evt.consume();
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_TextTensionMaximaKeyTyped
 
     private void TextTensionMinimaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTensionMinimaKeyTyped
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
         
-        if (c < '0' || c > '9') evt.consume();
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_TextTensionMinimaKeyTyped
 
     private void TextPulsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextPulsoKeyTyped
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
         
-        if (c < '0' || c > '9') evt.consume();
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_TextPulsoKeyTyped
 
     private void TextCitaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextCitaKeyTyped
