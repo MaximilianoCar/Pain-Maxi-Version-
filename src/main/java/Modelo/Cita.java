@@ -26,70 +26,18 @@ public class Cita {
         this.ID_Medico = ID_Medico;
     }
 
-    public int getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(int fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public int getPeso() {
-        return peso;
-    }
-
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
-
-    public int getTalla() {
-        return talla;
-    }
-
-    public void setTalla(int talla) {
-        this.talla = talla;
-    }
-
-    public float getPesoTalla() {
-        return pesoTalla;
-    }
-
-    public void setPesoTalla(float pesoTalla) {
-        this.pesoTalla = pesoTalla;
-    }
-
-    public int getTension_Maxima() {
-        return tension_Maxima;
-    }
-
-    public void setTension_Maxima(int tension_Maxima) {
-        this.tension_Maxima = tension_Maxima;
-    }
-
-    public int getTension_Minima() {
-        return tension_Minima;
-    }
-
-    public void setTension_Minima(int tension_Minima) {
-        this.tension_Minima = tension_Minima;
-    }
-
-    public int getPulso() {
-        return pulso;
-    }
-
-    public void setPulso(int pulso) {
-        this.pulso = pulso;
-    }
     private String ID;
     private String ID_Medico;
-    private int fecha;
-    private int peso;
-    private int talla;
-    private float pesoTalla;
-    private int tension_Maxima;
-    private int tension_Minima;
-    private int pulso;
+    private String fecha;
+    
          
     
 }

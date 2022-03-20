@@ -26,27 +26,27 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public int getCI() {
+    public String getCI() {
         return CI;
     }
 
-    public void setCI(int CI) {
+    public void setCI(String CI) {
         this.CI = CI;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public int getFecha_De_Nacimiento() {
+    public String getFecha_De_Nacimiento() {
         return Fecha_De_Nacimiento;
     }
 
-    public void setFecha_De_Nacimiento(int Fecha_De_Nacimiento) {
+    public void setFecha_De_Nacimiento(String Fecha_De_Nacimiento) {
         this.Fecha_De_Nacimiento = Fecha_De_Nacimiento;
     }
 
@@ -74,11 +74,11 @@ public class Persona {
         this.Direccion_De_HAbitacion = Direccion_De_HAbitacion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -98,25 +98,25 @@ public class Persona {
         this.ocupacion = ocupacion;
     }
 
-    public int getNumero_Familiar() {
+    public String getNumero_Familiar() {
         return Numero_Familiar;
     }
 
-    public void setNumero_Familiar(int Numero_Familiar) {
+    public void setNumero_Familiar(String Numero_Familiar) {
         this.Numero_Familiar = Numero_Familiar;
     }
     private String nombre;
     private String apellido;
-    private int CI;
-    private char sexo;
-    private int Fecha_De_Nacimiento;
+    private String CI;
+    private String sexo;
+    private String Fecha_De_Nacimiento;
     private String Lugar_De_Nacimiento;
     private String Estado_Civil;
     private String Direccion_De_HAbitacion;
-    private int telefono;
+    private String telefono;
     private String profesion;
     private String ocupacion;
-    private int Numero_Familiar;  
+    private String Numero_Familiar;  
 }
 
 

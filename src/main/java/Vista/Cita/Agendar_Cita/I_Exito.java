@@ -1,13 +1,17 @@
-package Vista.Historia_Medica;
+package Vista.Cita.Agendar_Cita;
+import Vista.Cita.Agendar_Cita.I_Agendar_CIta;
+import Vista.Cita.I_Cita;
+import Vista.I_Vista_Principal;
 
 public class I_Exito extends javax.swing.JFrame {
+    
 
+    
     private static I_Exito Instance;
 
     private I_Exito() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
     }
     
     public static I_Exito GetInstance()
@@ -17,7 +21,6 @@ public class I_Exito extends javax.swing.JFrame {
         
         return Instance;
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +88,8 @@ public class I_Exito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        I_Historia_Medica a = I_Historia_Medica.GetInstance();
+
+        I_Vista_Principal a =I_Vista_Principal.GetInstance();
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
