@@ -81,6 +81,11 @@ public class I_Cancelar_Cita extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("ID de la CIta");
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -181,6 +186,13 @@ public class I_Cancelar_Cita extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // Que no se pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments

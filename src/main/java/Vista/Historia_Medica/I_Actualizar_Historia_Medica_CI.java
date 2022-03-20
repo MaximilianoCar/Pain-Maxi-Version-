@@ -60,6 +60,11 @@ public class I_Actualizar_Historia_Medica_CI extends javax.swing.JFrame {
         jTextField3.setBackground(new java.awt.Color(153, 153, 153));
         jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -134,6 +139,12 @@ public class I_Actualizar_Historia_Medica_CI extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_jTextField3KeyTyped
 
     /**
      * @param args the command line arguments

@@ -124,12 +124,20 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         TextNombre.setBackground(new java.awt.Color(153, 153, 153));
         TextNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextNombre.setForeground(new java.awt.Color(255, 255, 255));
-        TextNombre.setText("Nombres");
+        TextNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextNombreKeyTyped(evt);
+            }
+        });
 
         jTextField3.setBackground(new java.awt.Color(153, 153, 153));
         jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.setText("C:I:");
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,7 +146,11 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jTextField5.setBackground(new java.awt.Color(153, 153, 153));
         jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField5.setText("Sexo");
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,7 +163,6 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jTextField6.setBackground(new java.awt.Color(153, 153, 153));
         jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("Fecha de Nacimiento");
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -165,20 +176,28 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jTextField7.setBackground(new java.awt.Color(153, 153, 153));
         jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField7.setText("Lugar de Nacimiento");
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
+            }
+        });
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField7KeyTyped(evt);
             }
         });
 
         jTextField8.setBackground(new java.awt.Color(153, 153, 153));
         jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField8.setText("Estado Civil");
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
+            }
+        });
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField8KeyTyped(evt);
             }
         });
 
@@ -193,7 +212,6 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jTextField9.setBackground(new java.awt.Color(153, 153, 153));
         jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField9.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField9.setText("Direccion de Habitación");
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField9ActionPerformed(evt);
@@ -203,24 +221,32 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jTextField11.setBackground(new java.awt.Color(153, 153, 153));
         jTextField11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField11.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField11.setText("Teléfono");
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField11ActionPerformed(evt);
             }
         });
+        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField11KeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Direccion de Habitación:");
+        jLabel12.setText("Telefono:");
 
         TextEspecializacion.setBackground(new java.awt.Color(153, 153, 153));
         TextEspecializacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextEspecializacion.setForeground(new java.awt.Color(255, 255, 255));
-        TextEspecializacion.setText("Especialización");
         TextEspecializacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextEspecializacionActionPerformed(evt);
+            }
+        });
+        TextEspecializacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextEspecializacionKeyTyped(evt);
             }
         });
 
@@ -402,6 +428,68 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TextNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreKeyTyped
+        // Que no pueda escribir numeros
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextNombreKeyTyped
+
+    private void TextEspecializacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextEspecializacionKeyTyped
+        // Que no pueda escribir numeros
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextEspecializacionKeyTyped
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        // Que no pueda escribir numeros
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField5KeyTyped
+
+    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField7KeyTyped
+
+    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField8KeyTyped
+
+    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_jTextField11KeyTyped
 
     /**
      * @param args the command line arguments

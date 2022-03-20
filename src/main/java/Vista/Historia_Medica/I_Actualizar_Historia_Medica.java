@@ -70,6 +70,11 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextImdc.setBackground(new java.awt.Color(153, 153, 153));
         TextImdc.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextImdc.setForeground(new java.awt.Color(255, 255, 255));
+        TextImdc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextImdcKeyTyped(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Tensión Arterial Mínima (mmHG):");
@@ -77,6 +82,11 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextTensionMaxima.setBackground(new java.awt.Color(153, 153, 153));
         TextTensionMaxima.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextTensionMaxima.setForeground(new java.awt.Color(255, 255, 255));
+        TextTensionMaxima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextTensionMaximaKeyTyped(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Pulso (en Pulsasiones por Minuto):");
@@ -84,10 +94,20 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextTensionMinima.setBackground(new java.awt.Color(153, 153, 153));
         TextTensionMinima.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextTensionMinima.setForeground(new java.awt.Color(255, 255, 255));
+        TextTensionMinima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextTensionMinimaKeyTyped(evt);
+            }
+        });
 
         TextPulso.setBackground(new java.awt.Color(153, 153, 153));
         TextPulso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextPulso.setForeground(new java.awt.Color(255, 255, 255));
+        TextPulso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextPulsoKeyTyped(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("ID Cita");
@@ -107,6 +127,11 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextPeso.setBackground(new java.awt.Color(153, 153, 153));
         TextPeso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextPeso.setForeground(new java.awt.Color(255, 255, 255));
+        TextPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextPesoKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Índice de Masa Corporal: ");
@@ -114,6 +139,11 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextTalla.setBackground(new java.awt.Color(153, 153, 153));
         TextTalla.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextTalla.setForeground(new java.awt.Color(255, 255, 255));
+        TextTalla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextTallaKeyTyped(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -138,10 +168,20 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextCita.setBackground(new java.awt.Color(153, 153, 153));
         TextCita.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextCita.setForeground(new java.awt.Color(255, 255, 255));
+        TextCita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextCitaKeyTyped(evt);
+            }
+        });
 
         TextSucursal.setBackground(new java.awt.Color(153, 153, 153));
         TextSucursal.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TextSucursal.setForeground(new java.awt.Color(255, 255, 255));
+        TextSucursal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextSucursalKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,6 +306,65 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void TextPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextPesoKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextPesoKeyTyped
+
+    private void TextTallaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTallaKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextTallaKeyTyped
+
+    private void TextImdcKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextImdcKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextImdcKeyTyped
+
+    private void TextTensionMaximaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTensionMaximaKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextTensionMaximaKeyTyped
+
+    private void TextTensionMinimaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTensionMinimaKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextTensionMinimaKeyTyped
+
+    private void TextPulsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextPulsoKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextPulsoKeyTyped
+
+    private void TextCitaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextCitaKeyTyped
+        // Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_TextCitaKeyTyped
+
+    private void TextSucursalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSucursalKeyTyped
+        // Que no pueda escribir numeros
+        char c = evt.getKeyChar();
+        
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextSucursalKeyTyped
 
     /**
      * @param args the command line arguments
