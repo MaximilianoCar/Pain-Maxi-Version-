@@ -1,7 +1,12 @@
 package Vista.Sucursal;
 
-import static Controlador.Ctrl_Sucursal.AñadirSucursal;
+import Modelo.Sucursal;
 import Vista.Cita.Modificar_Cita.I_Exito;
+import static Controlador.Ctrl_Sucursal.AñadirSucursal;
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import static Controlador.Ctrl_Sucursal.saveListaSucursales;
+import java.util.List;
 
 public class I_Añadir_Sucursal extends javax.swing.JFrame {
 
@@ -10,14 +15,14 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
     private I_Añadir_Sucursal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-    
-    public static I_Añadir_Sucursal GetInstance()
-    {
-        if (Instance == null)
+
+    public static I_Añadir_Sucursal GetInstance() {
+        if (Instance == null) {
             Instance = new I_Añadir_Sucursal();
-        
+        }
+
         return Instance;
     }
 
@@ -39,7 +44,7 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         TextNombre = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TextDireccion = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -102,12 +107,12 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
 
         jScrollPane2.setBackground(new java.awt.Color(153, 153, 153));
 
-        jTextArea1.setBackground(new java.awt.Color(153, 153, 153));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        TextDireccion.setBackground(new java.awt.Color(153, 153, 153));
+        TextDireccion.setColumns(20);
+        TextDireccion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        TextDireccion.setRows(5);
+        jScrollPane2.setViewportView(TextDireccion);
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -199,24 +204,36 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Boton a I_Exito si to gucci
+
         String nombre = TextNombre.getText();
-        
+        String direccion = TextDireccion.getText();
+
+        List<Sucursal> sucursales = getListaSucursales();
+        if (sucursales != null) {
+            if (buscarSucursal(nombre, sucursales) != -1) {
+                AñadirSucursal(nombre, direccion, sucursales);
+                saveListaSucursales(sucursales);
+                I_Exito a = I_Exito.GetInstance();
+                a.setVisible(true);
+                this.setVisible(false);
+            } else {
+//            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+//            Interfaz.setVisible(true);
+//            this.setVisible(false);           
+            }
+        } else {
+            AñadirSucursal(nombre, direccion, sucursales);
+            saveListaSucursales(sucursales);
             I_Exito a = I_Exito.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
-//            
-//            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
-//            Interfaz.setVisible(true);
-//            this.setVisible(false);
-        
-        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TextNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreKeyTyped
         // Que no pueda escribir numeros
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
@@ -259,6 +276,7 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TextDireccion;
     private javax.swing.JTextField TextNombre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -270,6 +288,5 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
