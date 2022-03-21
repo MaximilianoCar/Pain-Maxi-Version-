@@ -7,6 +7,7 @@ import Modelo.Cita;
 import Modelo.Paciente;
 import Modelo.Sucursal;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Ctrl_Cita {
 
@@ -50,6 +51,7 @@ public class Ctrl_Cita {
         }
 
         String IDCita = String.valueOf(Arr3);
+        JOptionPane.showMessageDialog(null, "El ID de la cita es: " + IDCita);
         return IDCita;
     }
 

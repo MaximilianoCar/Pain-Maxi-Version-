@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Ctrl_Sucursal {
 
@@ -76,7 +77,7 @@ public class Ctrl_Sucursal {
         }
 
         String IDMedico = String.valueOf(Arr);
-        
+        JOptionPane.showMessageDialog(null, "El ID del médico es: " + IDMedico);
         return IDMedico;
     }
     

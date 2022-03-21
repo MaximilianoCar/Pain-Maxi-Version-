@@ -6,6 +6,7 @@ import Vista.Historia_Medica.CitaH;
 import Vista.Historia_Medica.CitaH.Valores;
 import Vista.Historia_Medica.CitaH.Valores.Tension;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Ctrl_HistoriaMedica {
 
@@ -40,6 +41,7 @@ public class Ctrl_HistoriaMedica {
         }
 
         String IDHistoria = String.valueOf(Arr2);
+        JOptionPane.showMessageDialog(null, "El ID de la historia medica es: " + IDHistoria);
         return IDHistoria;
     }
 
