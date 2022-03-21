@@ -231,7 +231,7 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+// a
     private void TextNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreKeyTyped
         // Que no pueda escribir numeros
         char c = evt.getKeyChar();
