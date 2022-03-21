@@ -5,6 +5,14 @@ import Vista.Cita.Modificar_Cita.I_Exito;
 public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
 
     private static Registrar_Nuevo_Medico Instance;
+     public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
 
     private Registrar_Nuevo_Medico() {
         initComponents();

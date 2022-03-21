@@ -11,6 +11,14 @@ package Vista.Historia_Medica;
 public class I_Actualizar_Historia_Medica_CI extends javax.swing.JFrame {
 
     private static I_Actualizar_Historia_Medica_CI Instance;
+     public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
 
 
     private I_Actualizar_Historia_Medica_CI() {
@@ -129,6 +137,7 @@ public class I_Actualizar_Historia_Medica_CI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         I_Actualizar_Historia_Medica a =  I_Actualizar_Historia_Medica.GetInstance();
+        a.setSucursal(Sucursal);
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

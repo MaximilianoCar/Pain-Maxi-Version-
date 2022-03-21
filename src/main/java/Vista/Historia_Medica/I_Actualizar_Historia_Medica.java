@@ -4,6 +4,15 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
 
     private static I_Actualizar_Historia_Medica Instance;
 
+     public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
+    
     private I_Actualizar_Historia_Medica() {
         initComponents();
         this.setLocationRelativeTo(null);

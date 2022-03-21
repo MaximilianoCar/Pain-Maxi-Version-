@@ -13,6 +13,15 @@ import static Controlador.Ctrl_HistoriaMedica.CrearHistoria;
 public class I_Crear_Historia_Medica extends javax.swing.JFrame {
 
     private static I_Crear_Historia_Medica Instance;
+    
+     public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
 
     private I_Crear_Historia_Medica() {
         initComponents();
@@ -56,10 +65,8 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        TextSucursal = new javax.swing.JTextField();
         TextCita = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
 
@@ -171,9 +178,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Crear Historia Médica");
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel13.setText("Sucursal");
-
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,15 +195,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
-            }
-        });
-
-        TextSucursal.setBackground(new java.awt.Color(153, 153, 153));
-        TextSucursal.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        TextSucursal.setForeground(new java.awt.Color(255, 255, 255));
-        TextSucursal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TextSucursalKeyTyped(evt);
             }
         });
 
@@ -241,7 +236,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel13)
                             .addComponent(jLabel15)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
@@ -257,7 +251,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
                     .addComponent(TextTensionMaxima, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TextTensionMinima, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TextPulso, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TextSucursal, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TextCita, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
@@ -299,14 +292,10 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
                     .addComponent(TextPulso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TextSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -326,7 +315,7 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         String TensionMinima = TextTensionMinima.getText();
         String pulso = TextPulso.getText();
         String cita = TextCita.getText();
-        String sucursal = TextSucursal.getText();
+        String sucursal = Sucursal;
         
 
             I_Exito a = I_Exito.GetInstance();
@@ -352,16 +341,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_TextNombreKeyTyped
-
-    private void TextSucursalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSucursalKeyTyped
-        // Que no pueda escribir numeros
-        char c = evt.getKeyChar();
-        
-        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
-        } else {
-            evt.consume();
-        }
-    }//GEN-LAST:event_TextSucursalKeyTyped
 
     private void TextCIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextCIKeyTyped
         // Que no pueda escribir letras
@@ -465,7 +444,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
     private javax.swing.JTextField TextNombre;
     private javax.swing.JTextField TextPeso;
     private javax.swing.JTextField TextPulso;
-    private javax.swing.JTextField TextSucursal;
     private javax.swing.JTextField TextTalla;
     private javax.swing.JTextField TextTensionMaxima;
     private javax.swing.JTextField TextTensionMinima;
@@ -475,7 +453,6 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

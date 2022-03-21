@@ -11,6 +11,16 @@ import Vista.Cita.I_Cita;
 public class I_Modificar_Cita extends javax.swing.JFrame {
 
     private static I_Modificar_Cita Instance;
+    
+    public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
+    
     private I_Modificar_Cita() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -120,6 +130,7 @@ public class I_Modificar_Cita extends javax.swing.JFrame {
         String cita = jTextField6.getText();
 
             I_Introducir_Fecha a = I_Introducir_Fecha.GetInstance();
+            a.setSucursal(Sucursal);
             a.setVisible(true);
             this.setVisible(false);
 

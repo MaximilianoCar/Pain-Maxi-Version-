@@ -8,6 +8,7 @@ import Vista.Cita.Agendar_Cita.I_Agendar_CIta;
 import Vista.Cita.Cancelar_Cita.I_Cancelar_Cita;
 import Vista.Cita.Modificar_Cita.I_Modificar_Cita;
 import Vista.I_Vista_Principal;
+import Vista.I_Vista_Principal0;
 
 /**
  *
@@ -16,6 +17,15 @@ import Vista.I_Vista_Principal;
 public class I_Cita extends javax.swing.JFrame {
 
     private static I_Cita Instance;
+
+    public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
 
     private I_Cita() {
         initComponents();
@@ -168,6 +178,7 @@ public class I_Cita extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // boton a I_Cancelar_Cita
         I_Cancelar_Cita a = I_Cancelar_Cita.GetInstance();
+        a.setSucursal(Sucursal);
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -175,13 +186,14 @@ public class I_Cita extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton a I_Agendar_Cita
         I_Agendar_CIta Interfaz = I_Agendar_CIta.GetInstance();
+        Interfaz.setSucursal(Sucursal);
         Interfaz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Boton de atras a I_Vista_Principal
-        I_Vista_Principal Interfaz = I_Vista_Principal.GetInstance();
+        I_Vista_Principal0 Interfaz = I_Vista_Principal0.GetInstance();
         Interfaz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -189,6 +201,7 @@ public class I_Cita extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Boton a Modificar_Cita
         I_Modificar_Cita Interfaz = I_Modificar_Cita.GetInstance();
+        Interfaz.setSucursal(Sucursal);
         Interfaz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

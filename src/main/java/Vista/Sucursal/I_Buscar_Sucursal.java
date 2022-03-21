@@ -193,9 +193,12 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Boton a I_SucursalX
+        
         String sucursal = jTextField1.getText();
 
             I_SucursalX a = I_SucursalX.GetInstance();
+            a.setSucursal(sucursal);
+            a.SetNombre();
             a.setVisible(true);
             this.setVisible(false);
 

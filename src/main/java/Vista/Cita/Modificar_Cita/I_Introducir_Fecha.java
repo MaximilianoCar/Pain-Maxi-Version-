@@ -4,6 +4,15 @@ import static Controlador.Ctrl_Cita.ModificarCita;
 
 public class I_Introducir_Fecha extends javax.swing.JFrame {
     private static I_Introducir_Fecha Instance;
+    
+     public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
 
     private I_Introducir_Fecha() {
         initComponents();

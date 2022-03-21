@@ -5,6 +5,7 @@
 package Vista.Historia_Medica;
 
 import Vista.I_Vista_Principal;
+import Vista.I_Vista_Principal0;
 
 /**
  *
@@ -13,6 +14,14 @@ import Vista.I_Vista_Principal;
 public class I_Historia_Medica extends javax.swing.JFrame {
 
     private static I_Historia_Medica Instance;
+     public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
 
     private I_Historia_Medica() {
         initComponents();
@@ -116,19 +125,21 @@ public class I_Historia_Medica extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         I_Crear_Historia_Medica a = I_Crear_Historia_Medica.GetInstance();
+        a.setSucursal(Sucursal);
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         I_Actualizar_Historia_Medica_CI a = I_Actualizar_Historia_Medica_CI.GetInstance();
+        a.setSucursal(Sucursal);
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // boton para atras a I_Vista_Principal
-        I_Vista_Principal a = I_Vista_Principal.GetInstance();
+        I_Vista_Principal0 a = I_Vista_Principal0.GetInstance();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

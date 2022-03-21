@@ -5,6 +5,15 @@ import Controlador.Ctrl_Cita;
 public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
 
     private static I_Registrar_Datos_Paciente Instance;
+    private String Sucursal;
+
+    public String getSucursal() {
+        return Sucursal;
+    }
+
+    public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
 
     private I_Registrar_Datos_Paciente() {
         initComponents();

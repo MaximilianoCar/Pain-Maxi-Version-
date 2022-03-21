@@ -14,6 +14,19 @@ public class I_Agendar_CIta extends javax.swing.JFrame {
 
     private static I_Agendar_CIta Instance;
 
+    public static void setInstance(I_Agendar_CIta Instance) {
+        I_Agendar_CIta.Instance = Instance;
+    }
+    private String Sucursal;
+
+    public void setSucursal(String Sucursal) {
+        this.Sucursal = Sucursal;
+    }
+
+    public String getSucursal() {
+        return Sucursal;
+    }
+
     private I_Agendar_CIta() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -159,6 +172,7 @@ public class I_Agendar_CIta extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Boton a I_Registrar_Datos_Paciente
         I_Registrar_Datos_Paciente Interfaz = I_Registrar_Datos_Paciente.GetInstance();
+        Interfaz.setSucursal(Sucursal);
         Interfaz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -166,6 +180,7 @@ public class I_Agendar_CIta extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton a I_Buscar_Paciente
         I_Buscar_Paciente Interfaz = I_Buscar_Paciente.GetInstance();
+        Interfaz.setSucursal(Sucursal);
         Interfaz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
