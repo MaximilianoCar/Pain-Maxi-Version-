@@ -7,6 +7,7 @@ import static Controlador.Ctrl_Sucursal.buscarSucursal;
 import static Controlador.Ctrl_Sucursal.getListaSucursales;
 import static Controlador.Ctrl_Sucursal.saveListaSucursales;
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class I_Añadir_Sucursal extends javax.swing.JFrame {
@@ -220,7 +221,7 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
             } else {
                 I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
                 Interfaz.setVisible(true);
-                this.setVisible(false);         
+                this.setVisible(false);
             }
         } else {
             List<Sucursal> sucursales2 = new ArrayList<>();
@@ -231,7 +232,7 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-// a
+
     private void TextNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreKeyTyped
         // Que no pueda escribir numeros
         char c = evt.getKeyChar();
