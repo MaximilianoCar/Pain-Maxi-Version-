@@ -1,31 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.util.List;
 
-/**
- *
- * @author Maximiliano
- */
-public class Paciente  {
+public class Paciente extends Persona {
 
-    public String getNombre() {
-        return nombre;
-    }
+    public List<Cita> citas;
+    public List<HistoriaMedica> historia;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCI() {
-        return CI;
-    }
-
-    public void setCI(String CI) {
-        this.CI = CI;
+    public Paciente(List<Cita> citas,
+            List<HistoriaMedica> historia,
+            String nombre,
+            String apellido,
+            String CI,
+            String sexo,
+            String fechaNacimiento,
+            String lugarNacimiento,
+            String estadoCivil,
+            String direccion,
+            String telefono,
+            String profeson,
+            String ocupacion,
+            String telefonoPeronsaRe) 
+    {
+        super(nombre, 
+            apellido,
+            CI,
+            sexo,
+            fechaNacimiento,
+            lugarNacimiento,
+            estadoCivil,
+            direccion,
+            telefono,
+            profeson,
+            ocupacion,
+            telefonoPeronsaRe);
+        this.citas = citas;
+        this.historia = historia;
     }
 
     public List<Cita> getCitas() {
@@ -43,9 +53,5 @@ public class Paciente  {
     public void setHistoria(List<HistoriaMedica> historia) {
         this.historia = historia;
     }
-    private String nombre;
-    private String CI;
-    public List<Cita> citas;
-    public List<HistoriaMedica> historia;
-    
+
 }

@@ -1,18 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import Vista.Historia_Medica.CitaH;
 import java.util.List;
 
-/**
- *
- * @author Maximiliano
- */
 public class HistoriaMedica {
 
+    private String id;
+    private String nombre;
+    private List<CitaH> citas;
+    
     public String getId() {
         return id;
     }
@@ -36,7 +32,4 @@ public class HistoriaMedica {
     public void setCitas(List<CitaH> citas) {
         this.citas = citas;
     }
-    private String id;
-    private String nombre;
-    private List<CitaH> citas;
 }

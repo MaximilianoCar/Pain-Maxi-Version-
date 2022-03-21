@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista.Sucursal;
-import static Controlador.Ctrl_Sucursal.BuscarSucursal;
 /**
  *
  * @author Maximiliano
@@ -91,7 +90,6 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(153, 153, 153));
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Nombre Sucursal");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -196,18 +194,15 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Boton a I_SucursalX
         String sucursal = jTextField1.getText();
-        
-        if (BuscarSucursal(sucursal))
-        {
+
             I_SucursalX a = I_SucursalX.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
-        }else
-        {
-            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
-            Interfaz.setVisible(true);
-            this.setVisible(false);
-        }
+
+//            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+//            Interfaz.setVisible(true);
+//            this.setVisible(false);
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

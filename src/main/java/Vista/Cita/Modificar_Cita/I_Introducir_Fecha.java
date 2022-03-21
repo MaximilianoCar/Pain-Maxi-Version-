@@ -114,17 +114,15 @@ public class I_Introducir_Fecha extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // boton a I_Exito
         String fecha = jTextField6.getText();
-        if (ModificarCita(fecha))
-        {
+
              I_Exito a = I_Exito.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
-        }else
-        {
-            I_Error_Fecha Interfaz = I_Error_Fecha.GetInstance();
-            Interfaz.setVisible(true);
-            this.setVisible(false);
-        }
+
+//            I_Error_Fecha Interfaz = I_Error_Fecha.GetInstance();
+//            Interfaz.setVisible(true);
+//            this.setVisible(false);
+        
        
         
     }//GEN-LAST:event_jButton4ActionPerformed

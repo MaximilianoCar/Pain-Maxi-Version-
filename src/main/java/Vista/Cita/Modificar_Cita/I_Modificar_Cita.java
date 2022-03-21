@@ -4,7 +4,6 @@
  */
 package Vista.Cita.Modificar_Cita;
 
-import static Controlador.Ctrl_Cita.EncontrarCita;
 import Vista.Cita.Agendar_Cita.I_Error;
 import Vista.Cita.I_Cita;
 
@@ -119,17 +118,15 @@ public class I_Modificar_Cita extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //boton a I_Introducir_Fecha
         String cita = jTextField6.getText();
-        if (EncontrarCita(cita)) // encontrar cita
-        {
+
             I_Introducir_Fecha a = I_Introducir_Fecha.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
-        }else
-        {
-            I_Error Interfaz = I_Error.GetInstance();
-            Interfaz.setVisible(true);
-            this.setVisible(false);
-        }
+
+//            I_Error Interfaz = I_Error.GetInstance();
+//            Interfaz.setVisible(true);
+//            this.setVisible(false);
+        
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

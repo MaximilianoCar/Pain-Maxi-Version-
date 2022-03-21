@@ -4,7 +4,7 @@
  */
 package Vista.Cita.Cancelar_Cita;
 
-import static Controlador.Ctrl_Cita.CancelarCita;
+
 import Vista.Cita.Agendar_Cita.I_Error;
 import Vista.Cita.I_Cita;
 
@@ -172,17 +172,17 @@ public class I_Cancelar_Cita extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton a I_Cita_Cancelada
         String cita = jTextField1.getText();
-        if (CancelarCita(cita))
-        {
+        
+        
             I_Cita_Cancelada a = I_Cita_Cancelada.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
-        }else
-        {
-            I_Error Interfaz = I_Error.GetInstance();
-            Interfaz.setVisible(true);
-            this.setVisible(false);
-        }
+        
+        
+//            I_Error Interfaz = I_Error.GetInstance();
+//            Interfaz.setVisible(true);
+//            this.setVisible(false);
+        
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -1,122 +1,122 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controlador;
 
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import static Controlador.Ctrl_Sucursal.saveListaSucursales;
 import Modelo.Cita;
 import Modelo.Paciente;
-import Modelo.Persona;
+import Modelo.Sucursal;
+import java.util.List;
 
-/**
- *
- * @author Maximiliano
- */
 public class Ctrl_Cita {
-    
-    public static Boolean RegistrarPaciente (String nombre,
-                                   String apellido,
-                                   String CI,
-                                   String sexo,
-                                   String fechaNacimiento,
-                                   String lugarNacimiento,
-                                   String estadoCivil,
-                                   String direccion,
-                                   String telefono,
-                                   String telefonoPeronsaRe,
-                                   String profeson,
-                                   String ocupacion)
-    {
-        
-        if (true) // validacion de datos
-        {
-            Persona NuevoPaciente = new Persona();
-            NuevoPaciente.setNombre(nombre);
-            NuevoPaciente.setApellido(apellido);
-            NuevoPaciente.setCI(CI);
-            NuevoPaciente.setSexo(sexo);
-            NuevoPaciente.setFecha_De_Nacimiento(fechaNacimiento);
-            NuevoPaciente.setLugar_De_Nacimiento(lugarNacimiento);
-            NuevoPaciente.setEstado_Civil(estadoCivil);
-            NuevoPaciente.setDireccion_De_HAbitacion(direccion);
-            NuevoPaciente.setTelefono(telefono);
-            NuevoPaciente.setNumero_Familiar(lugarNacimiento);
-            NuevoPaciente.setProfesion(profeson);
-            NuevoPaciente.setOcupacion(ocupacion);
-            
-            Paciente NuevoPacienteToJson = new Paciente();
-            NuevoPacienteToJson.setNombre(nombre);
-            NuevoPacienteToJson.setCI(CI);
-            //Ahora colocar el paciente ne el Json
-        }else
-        {
-            return false;
+
+    // Valida que el paciente este registrado
+    public static int buscarPaciente(String CI, List<Paciente> pacientes) {
+        for (int i = 0; i < pacientes.size(); i++) {
+            if (pacientes.get(i).getCI().equals(CI)) {
+                return i; // Se encontro el paciente
+            }
         }
-        
-       
-        
-        
-        return null;  
-    }
-    
-    public static Boolean CrearCita(String fecha, String medico, String sucursal, String paciente)
-    {
-        
-        if (true)
-        {
-            String idMedico = medico; //conseguir la id
-            Cita NuevaCita = new Cita();
-            NuevaCita.setFecha(fecha);
-            NuevaCita.setID_Medico(idMedico); //revisar esto
-            
-            //pusehar la cita a la lista de cita del paciente
-        }
-        
-        
-        
-        return null;
-        
-    }
-    
-    public static Boolean EncontrarCita(String cita)
-    {
-        if (true) // se encontro la cita yei yei yei
-        {
-            return true;
-        }else
-        {
-            return false;
-        }
-    }
-    
-    public static Boolean ModificarCita(String cita)
-    {
-        if (true) // fecha valida
-        {
-            return true; //cambiar fecha xd
-        }else
-        {
-            return false;
-        }
-    }
-    
-    public static Boolean CancelarCita(String cita)
-    {
-        if (true) // se encontro la cita yei yei yei
-        {
-            //eliminar cita, haciendo que la anterior cita apunte a null y borralo o si es primero pos eso hacer first = NULL
-            return true;
-        }else
-        {
-            return false;
-        }
+        return -1; // No se encontro el paciente
     }
 
-//    public static void RegistrarPaciente() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    // Valida que la cita exista
+    public static int buscarCita(String ID, List<Cita> citas) {
+        for (int i = 0; i < citas.size(); i++) {
+            if (citas.get(i).getID().equals(ID)) {
+                return i; // Se encontro la cita
+            }
+        }
+        return -1; // No se encontro la cita
+    }
 
-   
-    
-    
+    // Valida que la fecha exista
+    public static int buscarFecha(String fecha, List<Cita> citas) {
+        for (int i = 0; i < citas.size(); i++) {
+            if (citas.get(i).getFecha().equals(fecha)) {
+                return i; // Se encontro la cita
+            }
+        }
+        return -1; // No se encontro la cita
+    }
+
+    // Genera el ID de la Cita
+    public static String generarIDCita() {
+        char[] Arr3 = new char[8];
+        for (int i = 0; i < 8; i++) {
+            int n = (int) (Math.random() * 9);
+            char c = (char) (n + '0');
+            Arr3[i] = c;
+        }
+
+        String IDCita = String.valueOf(Arr3);
+        return IDCita;
+    }
+
+    // Registrar un nuevo paciente y guardarlo al Json
+    public static boolean RegistrarPaciente(String nombre,
+            String apellido,
+            String CI,
+            String sexo,
+            String fechaNacimiento,
+            String lugarNacimiento,
+            String estadoCivil,
+            String direccion,
+            String telefono,
+            String profeson,
+            String ocupacion,
+            String telefonoPeronsaRe,
+            String sucursal) {
+
+        List<Sucursal> sucursales = getListaSucursales(); // Leer el Json para obtener la lista de sucursales
+        int index = buscarSucursal(sucursal, sucursales);
+
+        if (index != -1) {
+
+            if (buscarPaciente(CI, sucursales.get(index).getPacientes()) == -1) // Validar que el paciente no exista en la lista de pacientes
+            {
+                Paciente NuevoPaciente = new Paciente(null,
+                        null,
+                        nombre,
+                        apellido,
+                        CI,
+                        sexo,
+                        fechaNacimiento,
+                        lugarNacimiento,
+                        estadoCivil,
+                        direccion,
+                        telefono,
+                        profeson,
+                        ocupacion,
+                        telefonoPeronsaRe);
+
+                sucursales.get(index).getPacientes().add(NuevoPaciente);
+                saveListaSucursales(sucursales); // Escribir la lista de pacientes al Json
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Crea la Cita
+    public static void CrearCita(String ID, String idMedico, String fecha, String medico, List<Cita> citas) {
+
+        Cita NuevaCita = new Cita(ID, idMedico, fecha, medico);
+        citas.add(NuevaCita);
+
+    }
+
+    // Modifica la Cita
+    public static void ModificarCita(String ID, String fecha, List<Cita> citas) {
+        int index = buscarCita(ID, citas);
+        citas.get(index).setFecha(fecha);
+    }
+
+    //Cancela la Cita
+    public static void CancelarCita(int pos, List<Cita> citas) {
+
+        citas.remove(pos);
+
+    }
 }

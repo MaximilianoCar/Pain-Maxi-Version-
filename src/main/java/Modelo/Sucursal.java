@@ -1,18 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.util.List;
 
-
-/**
- *
- * @author Maximiliano
- */
 public class Sucursal {
+    
+    private String nombre;
+    private String direccion;
+    private List<Medico> medicos;
+    private List<Paciente> pacientes;
 
+    public Sucursal(String nombre, String direccion) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -36,9 +37,13 @@ public class Sucursal {
     public void setPacientes(List<Paciente> pacientes) {
         this.pacientes = pacientes;
     }
-    
-    private String nombre;
-    private List<Medico> medicos;
-    private List<Paciente> pacientes;
-    
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+        
 }

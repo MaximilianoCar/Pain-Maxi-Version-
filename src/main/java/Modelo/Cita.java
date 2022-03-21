@@ -1,14 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author Maximiliano
- */
 public class Cita {
+
+    private String ID;
+    private String ID_Medico;
+    private String fecha;
+    private String Medico;
+
+    public Cita(String ID, String ID_Medico, String fecha, String Medico) {
+        this.ID = ID;
+        this.ID_Medico = ID_Medico;
+        this.fecha = fecha;
+        this.Medico = Medico;
+    }
 
     public String getID() {
         return ID;
@@ -33,17 +37,13 @@ public class Cita {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    
+    public String getMedico() {
+        return Medico;
+    }
 
-    private String ID;
-    private String ID_Medico;
-    private String fecha;
-    
-         
-    
+    public void setMedico(String Medico) {
+        this.Medico = Medico;
+    }
+      
 }
-//                    "peso": "80",
-//                    "talla": "85",
-//                    "pesoTalla": "0.9",
-//                    "tension": {
-//                      "maxima": "200",
-//                      "minima": "180"

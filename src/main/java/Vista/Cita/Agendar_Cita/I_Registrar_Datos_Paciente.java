@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista.Cita.Agendar_Cita;
 
 import Controlador.Ctrl_Cita;
 
-/**
- *
- * @author Maximiliano
- */
 public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
 
     private static I_Registrar_Datos_Paciente Instance;
@@ -168,7 +160,7 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Fecha de Nacimiento: Ej. 01-01-2020");
+        jLabel7.setText("Fecha de Nacimiento: (dd-mm-aaaa)");
 
         TextLugarNacimiento.setBackground(new java.awt.Color(153, 153, 153));
         TextLugarNacimiento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -315,7 +307,7 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(162, Short.MAX_VALUE))
+                        .addContainerGap(167, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(TextApellido, javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,8 +416,6 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
             
         if (true) // condicion de validacion
         {   
-            Ctrl_Cita.RegistrarPaciente(nombre, apellido, CI, sexo, fechaNacimiento, lugarNacimiento, estadoCivil,
-                                        direccionHabitacion, telefono, telefonoPersonaRe, profesion, ocupacion);
             
             I_Exito Interfaz = I_Exito.GetInstance();
             Interfaz.setVisible(true);

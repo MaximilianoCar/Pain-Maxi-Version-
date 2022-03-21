@@ -1,14 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author Maximiliano
- */
-public class Medico extends Persona{
+public class Medico extends Persona {
+
+    private String id;
+    private String especialidad;
+
+    public Medico(String id,
+            String especialidad,
+            String nombre,
+            String apellido,
+            String CI,
+            String sexo,
+            String Fecha_De_Nacimiento,
+            String Lugar_De_Nacimiento,
+            String Estado_Civil,
+            String Direccion_De_HAbitacion,
+            String telefono) 
+    {
+        super(nombre,
+                apellido,
+                CI,
+                sexo,
+                Fecha_De_Nacimiento,
+                Lugar_De_Nacimiento,
+                Estado_Civil,
+                Direccion_De_HAbitacion,
+                telefono);
+        this.id = id;
+        this.especialidad = especialidad;
+    }
 
     public String getId() {
         return id;
@@ -18,14 +38,6 @@ public class Medico extends Persona{
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getEspecialidad() {
         return especialidad;
     }
@@ -33,10 +45,5 @@ public class Medico extends Persona{
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
-    
-    private String id;
-    private String nombre;
-    private String especialidad;    
-    
-    
+
 }

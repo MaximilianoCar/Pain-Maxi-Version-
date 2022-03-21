@@ -1,15 +1,59 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author Maximiliano
- */
 public class Persona {
 
+    private String nombre;
+    private String apellido;
+    private String CI;
+    private String sexo;
+    private String Fecha_De_Nacimiento;
+    private String Lugar_De_Nacimiento;
+    private String Estado_Civil;
+    private String Direccion_De_HAbitacion;
+    private String telefono;
+    private String profesion;
+    private String ocupacion;
+    private String Numero_Familiar;
+
+    public Persona(String nombre, 
+            String apellido, 
+            String CI, 
+            String sexo, 
+            String Fecha_De_Nacimiento, 
+            String Lugar_De_Nacimiento, 
+            String Estado_Civil, 
+            String Direccion_De_HAbitacion, 
+            String telefono, 
+            String profesion, 
+            String ocupacion, 
+            String Numero_Familiar) 
+    {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.CI = CI;
+        this.sexo = sexo;
+        this.Fecha_De_Nacimiento = Fecha_De_Nacimiento;
+        this.Lugar_De_Nacimiento = Lugar_De_Nacimiento;
+        this.Estado_Civil = Estado_Civil;
+        this.Direccion_De_HAbitacion = Direccion_De_HAbitacion;
+        this.telefono = telefono;
+        this.profesion = profesion;
+        this.ocupacion = ocupacion;
+        this.Numero_Familiar = Numero_Familiar;
+    }
+
+    public Persona(String nombre, String apellido, String CI, String sexo, String Fecha_De_Nacimiento, String Lugar_De_Nacimiento, String Estado_Civil, String Direccion_De_HAbitacion, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.CI = CI;
+        this.sexo = sexo;
+        this.Fecha_De_Nacimiento = Fecha_De_Nacimiento;
+        this.Lugar_De_Nacimiento = Lugar_De_Nacimiento;
+        this.Estado_Civil = Estado_Civil;
+        this.Direccion_De_HAbitacion = Direccion_De_HAbitacion;
+        this.telefono = telefono;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -105,30 +149,5 @@ public class Persona {
     public void setNumero_Familiar(String Numero_Familiar) {
         this.Numero_Familiar = Numero_Familiar;
     }
-    private String nombre;
-    private String apellido;
-    private String CI;
-    private String sexo;
-    private String Fecha_De_Nacimiento;
-    private String Lugar_De_Nacimiento;
-    private String Estado_Civil;
-    private String Direccion_De_HAbitacion;
-    private String telefono;
-    private String profesion;
-    private String ocupacion;
-    private String Numero_Familiar;  
+
 }
-
-
-// - Nombres: string
-// - Apellidos: string
-// - CI: int
-// - Sexo: char
-// - Fecha_de_Nacimiento: date
-// - Lugar_de_Nacimiento: string
-// - EstadoCivil: bool
-// - Direccion_de_habitacion: string
-// - Telefono: int
-// - Profesion: string
-// - Ocupacion: string
-// - Numero_de_telefono_familiar: int
