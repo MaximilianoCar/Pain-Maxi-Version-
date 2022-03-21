@@ -328,12 +328,11 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         String cita = TextCita.getText();
         String sucursal = TextSucursal.getText();
         
-        if (CrearHistoria(ci, cita, peso, talla, imdc, TensionMaxima, TensionMinima, pulso, sucursal))
-        {
+
             I_Exito a = I_Exito.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
-        }
+        
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

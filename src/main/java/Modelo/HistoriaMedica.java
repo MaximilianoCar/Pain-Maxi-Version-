@@ -6,7 +6,7 @@ import java.util.List;
 public class HistoriaMedica {
 
     private String id;
-    private String nombre;
+    private String paciente;
     private List<CitaH> citas;
     
     public String getId() {
@@ -17,12 +17,12 @@ public class HistoriaMedica {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getPacientee() {
+        return paciente;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setPaciente(String paciente) {
+        this.paciente = paciente;
     }
 
     public List<CitaH> getCitas() {
