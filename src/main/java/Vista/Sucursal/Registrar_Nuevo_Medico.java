@@ -1,11 +1,22 @@
 package Vista.Sucursal;
 
+import static Controlador.Ctrl_HistoriaMedica.buscarMedico;
+import static Controlador.Ctrl_Sucursal.RegistrarMedico;
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.generarIDMedico;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import static Controlador.Ctrl_Sucursal.saveListaSucursales;
+import Modelo.Medico;
+import Modelo.Sucursal;
 import Vista.Cita.Modificar_Cita.I_Exito;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
 
     private static Registrar_Nuevo_Medico Instance;
-     public void setSucursal(String Sucursal) {
+
+    public void setSucursal(String Sucursal) {
         this.Sucursal = Sucursal;
     }
     private String Sucursal;
@@ -17,14 +28,14 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
     private Registrar_Nuevo_Medico() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-    
-    public static Registrar_Nuevo_Medico GetInstance()
-    {
-        if (Instance == null)
+
+    public static Registrar_Nuevo_Medico GetInstance() {
+        if (Instance == null) {
             Instance = new Registrar_Nuevo_Medico();
-        
+        }
+
         return Instance;
     }
 
@@ -46,26 +57,26 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         TextNombre = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        TextCi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        TextSexo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        TextFechaNacimiento = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        TextLugarNacimiento = new javax.swing.JTextField();
+        TextEstadoCivil = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        TextDireccionHabitacion = new javax.swing.JTextField();
+        TextTelefono = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         TextEspecializacion = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        TextEspecializacion1 = new javax.swing.JTextField();
+        TextApellido = new javax.swing.JTextField();
 
         jTextField4.setBackground(new java.awt.Color(153, 153, 153));
         jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -136,12 +147,12 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
             }
         });
 
-        jTextField3.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextCi.setBackground(new java.awt.Color(153, 153, 153));
+        TextCi.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextCi.setForeground(new java.awt.Color(255, 255, 255));
+        TextCi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                TextCiKeyTyped(evt);
             }
         });
 
@@ -149,12 +160,12 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("C.I:");
 
-        jTextField5.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextSexo.setBackground(new java.awt.Color(153, 153, 153));
+        TextSexo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextSexo.setForeground(new java.awt.Color(255, 255, 255));
+        TextSexo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField5KeyTyped(evt);
+                TextSexoKeyTyped(evt);
             }
         });
 
@@ -166,12 +177,12 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Fecha de Nacimiento (dd-mm-aaaa):");
 
-        jTextField6.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        TextFechaNacimiento.setBackground(new java.awt.Color(153, 153, 153));
+        TextFechaNacimiento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        TextFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                TextFechaNacimientoActionPerformed(evt);
             }
         });
 
@@ -179,31 +190,31 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Lugar de Nacimiento:");
 
-        jTextField7.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        TextLugarNacimiento.setBackground(new java.awt.Color(153, 153, 153));
+        TextLugarNacimiento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextLugarNacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        TextLugarNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                TextLugarNacimientoActionPerformed(evt);
             }
         });
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextLugarNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField7KeyTyped(evt);
+                TextLugarNacimientoKeyTyped(evt);
             }
         });
 
-        jTextField8.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        TextEstadoCivil.setBackground(new java.awt.Color(153, 153, 153));
+        TextEstadoCivil.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextEstadoCivil.setForeground(new java.awt.Color(255, 255, 255));
+        TextEstadoCivil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                TextEstadoCivilActionPerformed(evt);
             }
         });
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextEstadoCivil.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField8KeyTyped(evt);
+                TextEstadoCivilKeyTyped(evt);
             }
         });
 
@@ -215,26 +226,26 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Direccion de Habitación:");
 
-        jTextField9.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        TextDireccionHabitacion.setBackground(new java.awt.Color(153, 153, 153));
+        TextDireccionHabitacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextDireccionHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        TextDireccionHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                TextDireccionHabitacionActionPerformed(evt);
             }
         });
 
-        jTextField11.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        TextTelefono.setBackground(new java.awt.Color(153, 153, 153));
+        TextTelefono.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        TextTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                TextTelefonoActionPerformed(evt);
             }
         });
-        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField11KeyTyped(evt);
+                TextTelefonoKeyTyped(evt);
             }
         });
 
@@ -284,17 +295,17 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Apellido:");
 
-        TextEspecializacion1.setBackground(new java.awt.Color(153, 153, 153));
-        TextEspecializacion1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        TextEspecializacion1.setForeground(new java.awt.Color(255, 255, 255));
-        TextEspecializacion1.addActionListener(new java.awt.event.ActionListener() {
+        TextApellido.setBackground(new java.awt.Color(153, 153, 153));
+        TextApellido.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextApellido.setForeground(new java.awt.Color(255, 255, 255));
+        TextApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextEspecializacion1ActionPerformed(evt);
+                TextApellidoActionPerformed(evt);
             }
         });
-        TextEspecializacion1.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                TextEspecializacion1KeyTyped(evt);
+                TextApellidoKeyTyped(evt);
             }
         });
 
@@ -332,18 +343,18 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(TextEspecializacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextCi, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextFechaNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextLugarNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextEstadoCivil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextDireccionHabitacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextEspecializacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(48, 48, 48))
         );
@@ -358,35 +369,35 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextEspecializacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextCi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextDireccionHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -413,29 +424,29 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void TextFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFechaNacimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_TextFechaNacimientoActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void TextLugarNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLugarNacimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_TextLugarNacimientoActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void TextEstadoCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEstadoCivilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_TextEstadoCivilActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void TextDireccionHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextDireccionHabitacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_TextDireccionHabitacionActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void TextTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_TextTelefonoActionPerformed
 
     private void TextEspecializacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEspecializacionActionPerformed
         // TODO add your handling code here:
@@ -449,19 +460,53 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Boton a I_Exito
+
         String nombre = TextNombre.getText();
+        String apellido = TextApellido.getText();
+        String ci = TextCi.getText();
+        String sexo = TextSexo.getText();
+        String fechaN = TextFechaNacimiento.getText();
+        String lugarN = TextLugarNacimiento.getText();
+        String estadocivil = TextEstadoCivil.getText();
+        String direccion = TextDireccionHabitacion.getText();
+        String telefono = TextTelefono.getText();
         String especialidad = TextEspecializacion.getText();
-        
-        I_Exito a = I_Exito.GetInstance();
-        a.setVisible(true);
-        this.setVisible(false);
+        String id = generarIDMedico();
+                
+        List<Sucursal> sucursales = getListaSucursales();
+
+        int index = buscarSucursal(Sucursal, sucursales);
+
+        if (sucursales.get(index).getMedicos() != null) {
+            if (buscarMedico(ci, sucursales.get(index).getMedicos()) == -1) {
+                RegistrarMedico(id, especialidad, nombre, apellido, ci, sexo, fechaN, lugarN, estadocivil, direccion, telefono, sucursales.get(index).getMedicos());
+                saveListaSucursales(sucursales);
+                I_Exito a = I_Exito.GetInstance();
+                a.setVisible(true);
+                this.setVisible(false);
+
+            } else {
+                I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+                Interfaz.setVisible(true);
+                this.setVisible(false);
+            }
+        } else {
+            List<Medico> medicos = new ArrayList<>();
+            RegistrarMedico(id, especialidad, nombre, apellido, ci, sexo, fechaN, lugarN, estadocivil, direccion, telefono, medicos);
+            sucursales.get(index).setMedicos(medicos);
+            saveListaSucursales(sucursales);
+            I_Exito a = I_Exito.GetInstance();
+            a.setVisible(true);
+            this.setVisible(false);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TextNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreKeyTyped
         // Que no pueda escribir numeros
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
@@ -471,62 +516,64 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
     private void TextEspecializacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextEspecializacionKeyTyped
         // Que no pueda escribir numeros
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
         }
     }//GEN-LAST:event_TextEspecializacionKeyTyped
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void TextCiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextCiKeyTyped
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
-        
-        if (c < '0' || c > '9') evt.consume();
-    }//GEN-LAST:event_jTextField3KeyTyped
 
-    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        if (c < '0' || c > '9')
+            evt.consume();
+    }//GEN-LAST:event_TextCiKeyTyped
+
+    private void TextSexoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextSexoKeyTyped
         // Que no pueda escribir numeros
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField5KeyTyped
+    }//GEN-LAST:event_TextSexoKeyTyped
 
-    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+    private void TextLugarNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextLugarNacimientoKeyTyped
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField7KeyTyped
+    }//GEN-LAST:event_TextLugarNacimientoKeyTyped
 
-    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+    private void TextEstadoCivilKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextEstadoCivilKeyTyped
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField8KeyTyped
+    }//GEN-LAST:event_TextEstadoCivilKeyTyped
 
-    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+    private void TextTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextTelefonoKeyTyped
         // Que no pueda escribir letras
         char c = evt.getKeyChar();
-        
-        if (c < '0' || c > '9') evt.consume();
-    }//GEN-LAST:event_jTextField11KeyTyped
 
-    private void TextEspecializacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextEspecializacion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextEspecializacion1ActionPerformed
+        if (c < '0' || c > '9')
+            evt.consume();
+    }//GEN-LAST:event_TextTelefonoKeyTyped
 
-    private void TextEspecializacion1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextEspecializacion1KeyTyped
+    private void TextApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextEspecializacion1KeyTyped
+    }//GEN-LAST:event_TextApellidoActionPerformed
+
+    private void TextApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextApellidoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextApellidoKeyTyped
 
     private void TextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNombreActionPerformed
         // TODO add your handling code here:
@@ -568,9 +615,16 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextApellido;
+    private javax.swing.JTextField TextCi;
+    private javax.swing.JTextField TextDireccionHabitacion;
     private javax.swing.JTextField TextEspecializacion;
-    private javax.swing.JTextField TextEspecializacion1;
+    private javax.swing.JTextField TextEstadoCivil;
+    private javax.swing.JTextField TextFechaNacimiento;
+    private javax.swing.JTextField TextLugarNacimiento;
     private javax.swing.JTextField TextNombre;
+    private javax.swing.JTextField TextSexo;
+    private javax.swing.JTextField TextTelefono;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -589,13 +643,7 @@ public class Registrar_Nuevo_Medico extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
 }

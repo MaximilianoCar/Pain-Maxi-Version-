@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista.Sucursal;
-/**
- *
- * @author Maximiliano
- */
+
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import Modelo.Sucursal;
+import java.util.List;
+
 public class I_Buscar_Sucursal extends javax.swing.JFrame {
 
     private static I_Buscar_Sucursal Instance;
@@ -14,14 +12,14 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
     private I_Buscar_Sucursal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-    
-    public static I_Buscar_Sucursal GetInstance()
-    {
-        if (Instance == null)
+
+    public static I_Buscar_Sucursal GetInstance() {
+        if (Instance == null) {
             Instance = new I_Buscar_Sucursal();
-        
+        }
+
         return Instance;
     }
 
@@ -39,7 +37,7 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TextNombreS = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -87,17 +85,17 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre Sucursal:");
 
-        jTextField1.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        TextNombreS.setBackground(new java.awt.Color(153, 153, 153));
+        TextNombreS.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextNombreS.setForeground(new java.awt.Color(255, 255, 255));
+        TextNombreS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TextNombreSActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextNombreS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                TextNombreSKeyTyped(evt);
             }
         });
 
@@ -138,7 +136,7 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(TextNombreS, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(289, 289, 289)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -157,7 +155,7 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
                         .addGap(104, 104, 104)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TextNombreS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -180,9 +178,9 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TextNombreSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNombreSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TextNombreSActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Tboton para atras a I_Sucursal
@@ -192,32 +190,34 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Boton a I_SucursalX
-        
-        String sucursal = jTextField1.getText();
 
+        String nombre = TextNombreS.getText();
+
+        List<Sucursal> sucursales = getListaSucursales();
+
+        if (sucursales != null && buscarSucursal(nombre, sucursales) != -1) {
             I_SucursalX a = I_SucursalX.GetInstance();
-            a.setSucursal(sucursal);
+            a.setSucursal(nombre);
             a.SetNombre();
             a.setVisible(true);
             this.setVisible(false);
+        }else{
+            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);   
+        }
 
-//            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
-//            Interfaz.setVisible(true);
-//            this.setVisible(false);
-        
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-       // Que no pueda escribir numeros
+    private void TextNombreSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreSKeyTyped
+        // Que no pueda escribir numeros
         char c = evt.getKeyChar();
-        
+
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || ' ' == c) {
         } else {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_TextNombreSKeyTyped
 
     /**
      * @param args the command line arguments
@@ -255,6 +255,7 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextNombreS;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -262,6 +263,5 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

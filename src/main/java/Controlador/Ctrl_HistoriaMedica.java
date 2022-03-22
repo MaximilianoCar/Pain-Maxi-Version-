@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 public class Ctrl_HistoriaMedica {
 
     // Valida que el medico este registrado
-    public static int buscarMedico(String ID, List<Medico> medicos) {
+    public static int buscarMedico(String ci, List<Medico> medicos) {
         for (int i = 0; i < medicos.size(); i++) {
-            if (medicos.get(i).getCI().equals(ID)) {
+            if (medicos.get(i).getCI().equals(ci)) {
                 return i; // Se encontro el medico
             }
         }
