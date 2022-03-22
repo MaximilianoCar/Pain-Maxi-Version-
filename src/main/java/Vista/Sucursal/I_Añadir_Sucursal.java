@@ -209,10 +209,16 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
 
         String nombre = TextNombre.getText();
         String direccion = TextDireccion.getText();
+        Boolean valido=true;
+        if (nombre.isEmpty() || direccion.isEmpty())
+            valido=false;
 
         List<Sucursal> sucursales = getListaSucursales();
-        if (sucursales != null) {
-            if (buscarSucursal(nombre, sucursales) == -1) {
+        
+        if(valido)
+        {
+            if (sucursales != null) {
+            if (buscarSucursal(nombre, sucursales) == -1 && valido) {
                 AñadirSucursal(nombre, direccion, sucursales);
                 saveListaSucursales(sucursales);
                 I_Exito a = I_Exito.GetInstance();
@@ -231,6 +237,13 @@ public class I_Añadir_Sucursal extends javax.swing.JFrame {
             a.setVisible(true);
             this.setVisible(false);
         }
+        }else
+        {
+            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TextNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextNombreKeyTyped

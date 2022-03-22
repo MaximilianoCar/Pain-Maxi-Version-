@@ -317,10 +317,23 @@ public class I_Crear_Historia_Medica extends javax.swing.JFrame {
         String cita = TextCita.getText();
         String sucursal = Sucursal;
         
-
+        Boolean valido = true;
+        if (nombre.isEmpty() || ci.isEmpty() || peso.isEmpty() || talla.isEmpty() || TensionMaxima.isEmpty() || imdc.isEmpty() || TensionMinima.isEmpty() || pulso.isEmpty() || cita.isEmpty() || sucursal.isEmpty())
+            valido = false;
+        
+        if (valido)
+        {
             I_Exito a = I_Exito.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
+        }else
+        {
+            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
+        }
+
+            
         
         
     }//GEN-LAST:event_jButton3ActionPerformed

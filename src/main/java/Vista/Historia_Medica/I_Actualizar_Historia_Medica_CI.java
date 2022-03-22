@@ -136,10 +136,25 @@ public class I_Actualizar_Historia_Medica_CI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        I_Actualizar_Historia_Medica a =  I_Actualizar_Historia_Medica.GetInstance();
-        a.setSucursal(Sucursal);
-        a.setVisible (true);
-        this.setVisible(false);
+        String IDHistoria = jTextField3.getText();
+        Boolean valido = true;
+        if (IDHistoria.isEmpty())
+            valido=false;
+                    
+        if (valido)
+        {
+            I_Actualizar_Historia_Medica a = I_Actualizar_Historia_Medica.GetInstance();
+            a.setSucursal(Sucursal);
+            a.setVisible(true);
+            this.setVisible(false);
+        }else
+        {
+            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

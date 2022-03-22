@@ -53,6 +53,8 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         TextTalla = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        TextID = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -162,6 +164,18 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
             }
         });
 
+        TextID.setBackground(new java.awt.Color(153, 153, 153));
+        TextID.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        TextID.setForeground(new java.awt.Color(255, 255, 255));
+        TextID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextIDKeyTyped(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel13.setText("ID Cita");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,7 +199,8 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -193,7 +208,8 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
                                 .addComponent(TextImdc)
                                 .addComponent(TextTensionMaxima)
                                 .addComponent(TextTensionMinima)
-                                .addComponent(TextPulso))
+                                .addComponent(TextPulso)
+                                .addComponent(TextID))
                             .addComponent(TextPeso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
@@ -226,7 +242,11 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextPulso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(241, 241, 241)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(200, 200, 200)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -242,24 +262,32 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // boton a I_Exito 
-    
+        String ID = TextID.getText();
         String peso = TextPeso.getText();
         String talla = TextTalla.getText();
         String imdc = TextImdc.getText();
         String TensionMaxima = TextTensionMaxima.getText();
         String TensionMinima = TextTensionMinima.getText();
         String pulso = TextPulso.getText();
-        
-        
-        
+        Boolean valido=true;
+        if (peso.isEmpty() || talla.isEmpty() || imdc.isEmpty() || TensionMaxima.isEmpty() || TensionMinima.isEmpty() || pulso.isEmpty() || ID.isEmpty())
+            valido=false;
+      
+        if (valido)
+        {
             I_Exito a = I_Exito.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
+        }else
+        {
+            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
+        }
+            
         
         
-//            I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
-//            Interfaz.setVisible(true);
-//            this.setVisible(false);
+
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -312,6 +340,13 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0' || c==',' || c=='.')) evt.consume();
     }//GEN-LAST:event_TextPulsoKeyTyped
 
+    private void TextIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextIDKeyTyped
+        /// Que no pueda escribir letras
+        char c = evt.getKeyChar();
+        
+        if (!(c == '1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0')) evt.consume();
+    }//GEN-LAST:event_TextIDKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -348,6 +383,7 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextID;
     private javax.swing.JTextField TextImdc;
     private javax.swing.JTextField TextPeso;
     private javax.swing.JTextField TextPulso;
@@ -360,6 +396,7 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -192,15 +192,27 @@ public class I_Buscar_Sucursal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         String nombre = TextNombreS.getText();
+        Boolean valido=true;
+        if (nombre.isEmpty())
+            valido=false;
 
         List<Sucursal> sucursales = getListaSucursales();
 
-        if (sucursales != null && buscarSucursal(nombre, sucursales) != -1) {
-            I_SucursalX a = I_SucursalX.GetInstance();
-            a.setSucursal(nombre);
-            a.SetNombre();
-            a.setVisible(true);
-            this.setVisible(false);
+        if ((sucursales != null && buscarSucursal(nombre, sucursales) != -1)) {
+            if(valido)
+            {
+                I_SucursalX a = I_SucursalX.GetInstance();
+                a.setSucursal(nombre);
+                a.SetNombre();
+                a.setVisible(true);
+                this.setVisible(false);
+            }else
+            {
+                I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
+                Interfaz.setVisible(true);
+                this.setVisible(false);
+            }
+            
         }else{
             I_Error_Generico Interfaz = I_Error_Generico.GetInstance();
             Interfaz.setVisible(true);
