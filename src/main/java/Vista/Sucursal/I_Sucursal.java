@@ -1,7 +1,7 @@
 package Vista.Sucursal;
 
 import Vista.I_Vista_Principal;
-import Vista.I_Vista_Principal0;
+
 
 public class I_Sucursal extends javax.swing.JFrame {
 
@@ -159,7 +159,7 @@ public class I_Sucursal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // boton para atras a I_Vista_Principal
-        I_Vista_Principal0 a = I_Vista_Principal0.GetInstance();
+        I_Vista_Principal a = I_Vista_Principal.GetInstance();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

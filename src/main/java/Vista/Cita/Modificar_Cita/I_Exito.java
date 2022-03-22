@@ -2,7 +2,6 @@ package Vista.Cita.Modificar_Cita;
 import Vista.Cita.Agendar_Cita.I_Agendar_CIta;
 import Vista.Cita.I_Cita;
 import Vista.I_Vista_Principal;
-import Vista.I_Vista_Principal0;
 
 public class I_Exito extends javax.swing.JFrame {
     
@@ -90,7 +89,7 @@ public class I_Exito extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        I_Vista_Principal0 a =I_Vista_Principal0.GetInstance();
+        I_Vista_Principal a =I_Vista_Principal.GetInstance();
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

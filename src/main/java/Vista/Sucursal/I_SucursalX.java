@@ -6,7 +6,8 @@ package Vista.Sucursal;
 
 import Vista.Cita.I_Cita;
 import Vista.Historia_Medica.I_Historia_Medica;
-import Vista.I_Vista_Principal0;
+import Vista.I_Vista_Principal;
+
 
 /**
  *
@@ -207,7 +208,7 @@ public class I_SucursalX extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // boton para atras a I_Vista_Principal0
-        I_Vista_Principal0 a = I_Vista_Principal0.GetInstance();
+        I_Vista_Principal a = I_Vista_Principal.GetInstance();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

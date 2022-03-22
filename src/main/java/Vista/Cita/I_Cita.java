@@ -8,7 +8,7 @@ import Vista.Cita.Agendar_Cita.I_Agendar_CIta;
 import Vista.Cita.Cancelar_Cita.I_Cancelar_Cita;
 import Vista.Cita.Modificar_Cita.I_Modificar_Cita;
 import Vista.I_Vista_Principal;
-import Vista.I_Vista_Principal0;
+
 
 /**
  *
@@ -193,7 +193,7 @@ public class I_Cita extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Boton de atras a I_Vista_Principal
-        I_Vista_Principal0 Interfaz = I_Vista_Principal0.GetInstance();
+        I_Vista_Principal Interfaz = I_Vista_Principal.GetInstance();
         Interfaz.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed

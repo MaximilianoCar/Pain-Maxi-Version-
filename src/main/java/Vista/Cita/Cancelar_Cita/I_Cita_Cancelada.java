@@ -5,7 +5,6 @@
 package Vista.Cita.Cancelar_Cita;
 
 import Vista.I_Vista_Principal;
-import Vista.I_Vista_Principal0;
 
 /**
  *
@@ -131,7 +130,7 @@ public class I_Cita_Cancelada extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // boton a I_Vista_Principal
-        I_Vista_Principal0 a = I_Vista_Principal0.GetInstance();
+        I_Vista_Principal a = I_Vista_Principal.GetInstance();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

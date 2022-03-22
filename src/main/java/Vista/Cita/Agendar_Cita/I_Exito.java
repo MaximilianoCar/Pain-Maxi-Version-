@@ -90,7 +90,7 @@ public class I_Exito extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        I_Vista_Principal0 a =I_Vista_Principal0.GetInstance();
+        I_Vista_Principal a =I_Vista_Principal.GetInstance();
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

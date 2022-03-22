@@ -4,6 +4,8 @@
  */
 package Vista.Cita.Agendar_Cita;
 
+import Vista.I_Vista_Principal;
+
 /**
  *
  * @author Maximiliano
@@ -127,7 +129,10 @@ public class I_Error extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Boton a I_Vista_Principal
+        I_Vista_Principal Interfaz = I_Vista_Principal.GetInstance();
+        Interfaz.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
