@@ -4,6 +4,12 @@
  */
 package Vista.Cita.Agendar_Cita;
 
+import static Controlador.Ctrl_Cita.buscarPaciente;
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import Modelo.Sucursal;
+import java.util.List;
+
 /**
  *
  * @author Maximiliano
@@ -175,7 +181,10 @@ public class I_Buscar_Paciente extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Boton a I_Introducir_Fecha
         String CI = jTextField1.getText();
-        if (true) //validar que existe el paciente en la sucursal dicha
+        List<Sucursal> sucursales = getListaSucursales();
+        int index = buscarSucursal(Sucursal, sucursales);
+        
+        if (buscarPaciente(CI, sucursales.get(index).getPacientes()) != -1) //validar que existe el paciente en la sucursal dicha
         {
             I_Introducir_Fecha Interfaz = I_Introducir_Fecha.GetInstance();
             Interfaz.setPaciente(CI);
@@ -184,7 +193,9 @@ public class I_Buscar_Paciente extends javax.swing.JFrame {
             this.setVisible(false);
         }else
         {
-            //a error
+           I_Error Interfaz = I_Error.GetInstance();
+           Interfaz.setVisible(true);
+           this.setVisible(false);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

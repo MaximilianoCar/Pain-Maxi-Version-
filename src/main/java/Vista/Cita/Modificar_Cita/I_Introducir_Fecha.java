@@ -1,6 +1,13 @@
 package Vista.Cita.Modificar_Cita;
 
 import static Controlador.Ctrl_Cita.ModificarCita;
+import static Controlador.Ctrl_Cita.buscarFecha;
+import static Controlador.Ctrl_Cita.buscarPaciente;
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import Modelo.Cita;
+import Modelo.Sucursal;
+import java.util.List;
 
 public class I_Introducir_Fecha extends javax.swing.JFrame {
     private static I_Introducir_Fecha Instance;
@@ -9,6 +16,15 @@ public class I_Introducir_Fecha extends javax.swing.JFrame {
         this.Sucursal = Sucursal;
     }
     private String Sucursal;
+
+    public String getCI() {
+        return CI;
+    }
+
+    public void setCI(String CI) {
+        this.CI = CI;
+    }
+    private String CI;
 
     public String getSucursal() {
         return Sucursal;
@@ -123,15 +139,22 @@ public class I_Introducir_Fecha extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // boton a I_Exito
         String fecha = jTextField6.getText();
-
-             I_Exito a = I_Exito.GetInstance();
+        List<Sucursal> sucursales = getListaSucursales();
+        int index = buscarSucursal(Sucursal, sucursales);
+        int indexpac = buscarPaciente(CI, sucursales.get(index).getPacientes());
+        List<Cita> citas = sucursales.get(index).getPacientes().get(indexpac).getCitas();
+        if (buscarFecha(fecha, citas) != -1)
+        {
+            I_Exito a = I_Exito.GetInstance();
             a.setVisible(true);
             this.setVisible(false);
+        }else
+        {
+            I_Error_Fecha Interfaz = I_Error_Fecha.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
+        }
 
-//            I_Error_Fecha Interfaz = I_Error_Fecha.GetInstance();
-//            Interfaz.setVisible(true);
-//            this.setVisible(false);
-        
        
         
     }//GEN-LAST:event_jButton4ActionPerformed

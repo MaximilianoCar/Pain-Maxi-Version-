@@ -1,6 +1,7 @@
 package Vista.Cita.Agendar_Cita;
 
 import Controlador.Ctrl_Cita;
+import static Controlador.Ctrl_Cita.RegistrarPaciente;
 
 public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
 
@@ -410,7 +411,7 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton a I_Agendar_Cita
         
-            String nombre = TextNombre.getText();
+             String nombre = TextNombre.getText();
             String apellido = TextApellido.getText();
             String CI = TextCI.getText();
             String sexo = TextSexo.getText();
@@ -423,15 +424,16 @@ public class I_Registrar_Datos_Paciente extends javax.swing.JFrame {
             String profesion = TextProfesion.getText();
             String ocupacion = TextOcupacion.getText();
             
-        if (true) // condicion de validacion
+        if (RegistrarPaciente(nombre,apellido, CI, sexo, fechaNacimiento,lugarNacimiento, estadoCivil, direccionHabitacion, telefono, profesion,ocupacion, telefonoPersonaRe, Sucursal)) // condicion de validacion
         {   
-            
             I_Exito Interfaz = I_Exito.GetInstance();
             Interfaz.setVisible(true);
             this.setVisible(false);
         }else
         {
-            
+            I_Error Interfaz = I_Error.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

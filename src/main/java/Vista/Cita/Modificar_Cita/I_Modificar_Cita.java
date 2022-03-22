@@ -4,8 +4,13 @@
  */
 package Vista.Cita.Modificar_Cita;
 
+import static Controlador.Ctrl_Cita.buscarPaciente;
+import static Controlador.Ctrl_Sucursal.buscarSucursal;
+import static Controlador.Ctrl_Sucursal.getListaSucursales;
+import Modelo.Sucursal;
 import Vista.Cita.Agendar_Cita.I_Error;
 import Vista.Cita.I_Cita;
+import java.util.List;
 
 
 public class I_Modificar_Cita extends javax.swing.JFrame {
@@ -126,17 +131,22 @@ public class I_Modificar_Cita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //boton a I_Introducir_Fecha
-        String cita = jTextField6.getText();
-
+        String CI = jTextField6.getText();
+        List<Sucursal> sucursales = getListaSucursales();
+        int index = buscarSucursal(Sucursal, sucursales);
+        
+        if (buscarPaciente(CI, sucursales.get(index).getPacientes()) != -1) 
+        {
             I_Introducir_Fecha a = I_Introducir_Fecha.GetInstance();
             a.setSucursal(Sucursal);
             a.setVisible(true);
             this.setVisible(false);
-
-//            I_Error Interfaz = I_Error.GetInstance();
-//            Interfaz.setVisible(true);
-//            this.setVisible(false);
+        }else
+        {
+            I_Error Interfaz = I_Error.GetInstance();
+            Interfaz.setVisible(true);
+            this.setVisible(false);
+        }
         
         
     }//GEN-LAST:event_jButton3ActionPerformed

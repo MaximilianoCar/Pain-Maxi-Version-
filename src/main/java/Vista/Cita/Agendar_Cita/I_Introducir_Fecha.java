@@ -220,7 +220,7 @@ public class I_Introducir_Fecha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Boton a Agendar_CIta
+         // Boton a Agendar_CIta
         I_Introducir_Fecha instance = I_Introducir_Fecha.GetInstance();
         String medico = jTextField2.getText();
         String fecha = jTextField1.getText();
